@@ -25,3 +25,18 @@ fn main(){
 fn bezier(){
 
 }
+
+fn factorial(x: i32){
+    
+
+}
+
+fn puntosControl() -> i32{
+    let mut x : String = String::new();
+    let mut y : String = String::new();
+    println!("X: ")
+    std::io::stdin().read_line(&mut x).unwrap(); 
+    println!("Y: ")
+    std::io::stdin().read_line(&mut y).unwrap(); 
+
+}
