@@ -18,25 +18,34 @@ fn main(){
     let n_int: i8 = n.trim().parse().unwrap();
     println!("El valor de n es {}", n);
 
+    println!(factorial(u));
+
+
 
 
 }
 
 fn bezier(){
 
-}
-
-fn factorial(x: i32){
-    
 
 }
 
-fn puntosControl() -> i32{
-    let mut x : String = String::new();
-    let mut y : String = String::new();
-    println!("X: ")
-    std::io::stdin().read_line(&mut x).unwrap(); 
-    println!("Y: ")
-    std::io::stdin().read_line(&mut y).unwrap(); 
+fn factorial(x: u32) -> u32{
+    if x < 2{
+        1
+    }else{
+        x * factorial(x-1)
+    }
 
 }
+
+
+//n puntosControl() -> i32{
+    //let mut x : String = String::new();
+    //let mut y : String = String::new();
+    //println!("X: ")
+    //std::io::stdin().read_line(&mut x).unwrap(); 
+    //println!("Y: ")
+    //std::io::stdin().read_line(&mut y).unwrap(); 
+
+//}
