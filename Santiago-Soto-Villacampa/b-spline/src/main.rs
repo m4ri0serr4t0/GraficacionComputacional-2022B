@@ -1,61 +1,44 @@
 use std::vec::Vec;
-//use b_spline::utils::stdiox;
+use b_spline::utils::stdiox as io;
 use b_spline::geometry::points::Point;
-use b_spline::geometry::vec_points::{self, Transform};
+use b_spline::geometry::vec_points::{self, Transform, new};
 use b_spline::geometry::plot;
 
-/*
-
-                    |
-                    |
-                    |
-                    |                          . 12 Puntos de control = Polinomio en piezas de grado 12.
-                    |                         /  Como P(1,3) = P(2,0) y P(2,3) = P(3,0), el grado real es solo 10.
-                    |           i = 1        /       
-                    |                       /
-                    |              _..o P  /
-                    |            _/     \ /
-                    |          ./         .                                 
-                    |         /            o. P(1,3) = P(2,0)    ___     i = 3
-                    |        o P(1,1)      l \.                +    l+      
-                    |       /              l   \             /      l  \
-                    |      |               l    \  i = 2   +        l    .
-                    |     |                l     \      ./          l      \
-                    |    |                 l       . _--            l        +              m = 3 segmentos 
-                    |   |                  l                        l         \             "i" va de 1 a m - 1 <-- recorre los segmentos C(u)
-                    |   o P(1,0)           l                        l          \            u E [0,1]
-    breakpoints ------> u0 = 0            u1                       u2          u3 = 1       u0 < u1 < u2 < u3
-                    |_________________________________________________________________________________
-
-                        P(j,i) -> j = segmento
-                               -> i = punto (del segmento)
-                        
-                        u1 y u2 pueden ser discontinuos.
-*/
-
-fn main() {//                                                u=2.5
-    //U = {0,0,0,1,2,3,4,4,5,5,5}       0    1    2    3    4    5    6    7    8    9    10
-    //let knot_vec:Vec<f64> = Vec::from([0.0, 0.0, 0.0, 1.0, 2.0, 3.0, 4.0, 4.0, 5.0, 5.0, 5.0]);
-
-    // Ejemplo: pag. 88
-    //let knot_vec:Vec<f64> = Vec::from([0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0]);
-    let knot_vec:Vec<f64> = Vec::from([0.0,0.0,0.0,0.125,0.25,0.375,0.5,0.625,0.75,0.875,1.0,1.0,1.0]);
+fn main() {//                                                 u=2.5
+    
+    //let knot_vec:Vec<f64> = Vec::from([0.0,0.0,0.0,0.125,0.25,0.375,0.5,0.625,0.75,0.875,1.0,1.0,1.0]);
+    let mut knot_vec:Vec<f64> = Vec::new();
 
     let mut ctrl_points = vec_points::new();
 
-    ctrl_points.push(Point::new(0.0, 5.0));
-    ctrl_points.push(Point::new(1.0, 7.0));
-    ctrl_points.push(Point::new(2.0, 5.0));
-    ctrl_points.push(Point::new(4.0, 10.0));
-    ctrl_points.push(Point::new(8.0, 9.0));
-    ctrl_points.push(Point::new(10.0, 0.0));
-    ctrl_points.push(Point::new(14.0, 5.0));
-    ctrl_points.push(Point::new(15.0, 3.0));
-    ctrl_points.push(Point::new(19.0, 8.0));
-    ctrl_points.push(Point::new(20.0, 7.0));
+    // input del usuario
+    let n = io::read_i32("Digite el número de nodos: ");
+    let p = io::read_i32("Digite el grado: "); // menor o igual a m/2
+    
+    for k in 0..=p {
+        println!("u[{}] = 0.0",k);
+        knot_vec.push(0.0);
+    }
+
+    for k in p + 1..n - p - 1 {
+        knot_vec.push(io::read_f64(format!("u[{}] = ",k).as_str()));
+    }
+
+    for k in n - p - 1..n {
+        println!("u[{}] = 1.0",k);
+        knot_vec.push(1.0);
+    } 
+
+    //m = n + 1 + p --> n+1 = m - p
+    for k in 0..n - p - 1 {
+        println!("\nP({})", k);
+        let point:Point = Point { x: io::read_f64("\tx = "), y: io::read_f64("\ty = ") };
+
+        ctrl_points.push(point);
+    }
 
     //let p = (ctrl_points.len() - 1) as i32; 
-    let p = 2;
+    //let p = 2;
 
     let mut curve: Vec<Point> = vec_points::new();
 
@@ -67,7 +50,7 @@ fn main() {//                                                u=2.5
 
     println!("Curva : {}", curve.to_string());
 
-    plot::plot_graph("Curva B-Spline", "B_Spline_04.png", &ctrl_points, &curve);
+    plot::plot_graph("Curva B-Spline", "B_Spline.png", &ctrl_points, &curve);
 
     
 }
