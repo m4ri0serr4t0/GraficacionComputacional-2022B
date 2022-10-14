@@ -28,6 +28,7 @@ pub fn valores_validos(vector:&Vec<f64>,min:f64,max:f64) {
 
 pub fn nombre_con_extension(nombre:&str, extension:&str) -> String {
     let mut nombre = nombre.to_string();
+    nombre = format!("results/{}",nombre);
     if !nombre.ends_with(extension) {
         nombre.push_str(extension);
     }

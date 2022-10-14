@@ -48,5 +48,5 @@ pub fn plot_curve(title:&str, fname:&str, points:&Vec<Point>, curve:&Vec<Point>,
 		)
 	).unwrap();
 	drawing_area.present().expect("No se pudo crear el archivo");
-	println!("La curva se ha graficado en la imagnen {}", fname);
+	println!("La curva se ha guardado en {}", fname);
 }

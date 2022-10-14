@@ -32,16 +32,16 @@ fn main() {
     // Generate the curve
     //let bspline: Vec<Point> = curves::bspline(&knots, &points, p, 0.0001);
 
-    //let mut name:String = "name".to_owned();
-    //name.push_str(".png");
-    // Draw the curve
+    //let mut name:String = "ejemplo1_1".to_owned();
+    //name = verification::nombre_con_extension(&name, "png");
+    //Draw the curve
     //plot::plot_curve("Curva",&name, &points, &bspline, 1200,800);
     
     // * Aqui comienza la lectura para el usuario
 
-    // Lectura de nudos
     print!("Ingrese el numero de nudos: ");
-    let n:i32 = read::read_unique();
+    let n:i32 = read::read();
+    // Lectura de nudos
     verification::mayor_que(n as f64, 2.0, "El numero de nudos debe ser mayor que 2");
     println!("Ingrese los nudos: ");
     let knots:Vec<f64> = read_loop(n, "nudo");
@@ -50,27 +50,26 @@ fn main() {
 
     // Lectura de puntos de control
     print!("Ingrese el numero de puntos de control: ");
-    let n:i32 = read::read_unique();
+    let n:i32 = read::read();
     verification::mayor_que(n as f64, 2.0, "El numero de puntos de control debe ser mayor que 2");
-    let points:Vec<Point> = read::read_point_loop(n);
+    let points:Vec<Point> = read::read_loop(n, " punto");
 
     // Lectura del grado
     print!("Ingrese el grado: ");
-    let p:i32 = read::read_unique();
+    let p:i32 = read::read();
     verification::mayor_que(p as f64, 1.0, "El grado debe ser mayor que 1");
 
     // Lectura de saltos en la curva, define la resolucion de la curva
-    print!("Ingrese el salto en u: ");
-    let u:f64 = read::read_unique();
-    verification::mayor_que(u, 0.0, "El salto en u debe ser mayor que 0");
+    let u = 0.001;
 
     // Generacion de la curva
     let bspline: Vec<Point> = curves::bspline(&knots, &points, p, u);
 
     // Dibujo de la curva
     print!("Ingrese el nombre del archivo para guardar la curva (.png): ");
-    let mut name: String = read::read_unique();
+    let mut name: String = read::read();
     name = verification::nombre_con_extension(&name, ".png");
 
     plot::plot_curve("Curva",&name, &points, &bspline, 1200,800);
+
 }

@@ -20,8 +20,7 @@ fn curve_point(n:i32,p:i32,u:f64,knots:&Vec<f64>,points:&Vec<Point>) -> Point {
     let mut curve_point:Point = Point::new(0.0, 0.0);
 
     for j in 0..=p {
-        curve_point.x = curve_point.x + basisfuns[j as usize] * points[(span - p + j) as usize].x;
-        curve_point.y = curve_point.y + basisfuns[j as usize] * points[(span - p + j) as usize].y;
+        curve_point = curve_point + points[(span - p + j) as usize] * basisfuns[j as usize];
     }
 
     return curve_point;
