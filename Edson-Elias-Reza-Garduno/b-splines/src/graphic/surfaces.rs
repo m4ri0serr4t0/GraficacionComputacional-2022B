@@ -1,13 +1,13 @@
 use crate::common::point3d::Point3D;
 use crate::common::vec_point3d;
 
-pub fn bspline_surface(U:&Vec<f64>, V:&Vec<f64>, P:&Vec<Vec<Point3D>>, mut u:f64, mut v:f64, p:i32, q:i32) -> Vec<Point3D> {
-    let n:i32 = (P.len() - 1)  as i32;
-    let m:i32 = (P[0].len() - 1) as i32;
+pub fn bspline_surface(knots_u:&Vec<f64>, knots_v:&Vec<f64>, points:&Vec<Vec<Point3D>>, mut u:f64, mut v:f64, p:i32, q:i32) -> Vec<Point3D> {
+    let n:i32 = (points.len() - 1)  as i32;
+    let m:i32 = (points[0].len() - 1) as i32;
     let mut surface:Vec<Point3D> = vec_point3d::new();
     while u <= 1.0 {
         while v <= 1.0 {
-            surface.push(surface_point(n, p,&U, m, q, &V, &P, u, v));
+            surface.push(surface_point(n, p,&knots_u, m, q, &knots_v, &points, u, v));
             v = v + 0.01;
         }
         u = u + 0.01;
@@ -15,11 +15,11 @@ pub fn bspline_surface(U:&Vec<f64>, V:&Vec<f64>, P:&Vec<Vec<Point3D>>, mut u:f64
     return surface;
 }
 
-fn surface_point(n:i32, p:i32, U:&Vec<f64>, m:i32, q:i32, V:&Vec<f64>, points:&Vec<Vec<Point3D>>, u:f64, v:f64) -> Point3D {
-    let uspan = find_span(n, p, u, &U);
-    let vspan = find_span(m, q, v, &V);
-    let nu = basis_funs(uspan, u, p, &U);
-    let nv = basis_funs(vspan, v, q, V);
+fn surface_point(n:i32, p:i32, knots_u:&Vec<f64>, m:i32, q:i32, knots_v:&Vec<f64>, points:&Vec<Vec<Point3D>>, u:f64, v:f64) -> Point3D {
+    let uspan = find_span(n, p, u, &knots_u);
+    let vspan = find_span(m, q, v, &knots_v);
+    let nu = basis_funs(uspan, u, p, &knots_u);
+    let nv = basis_funs(vspan, v, q, &knots_v);
     let mut temp = vec![Point3D::new(0.0, 0.0, 0.0); p as usize];
      for l in 0..q {
         for k in 0..q {
