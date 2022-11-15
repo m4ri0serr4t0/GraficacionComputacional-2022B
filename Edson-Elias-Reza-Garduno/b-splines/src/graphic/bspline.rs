@@ -1,5 +1,7 @@
 use crate::common::point::Point;
 use crate::common::vec_point;
+use crate::common::point3d::Point3D;
+use crate::common::vec_point3d;
 
 pub fn bspline(knots:&Vec<f64>, points:&Vec<Point>, p:i32, step:f64) -> Vec<Point> {
     let n:i32 = (points.len() - 1) as i32;
@@ -24,6 +26,39 @@ fn curve_point(n:i32,p:i32,u:f64,knots:&Vec<f64>,points:&Vec<Point>) -> Point {
     }
 
     return curve_point;
+}
+
+pub fn bspline_surface(knots_u:&Vec<f64>, knots_v:&Vec<f64>, points:&Vec<Vec<Point3D>>, mut u:f64, mut v:f64, p:i32, q:i32) -> Vec<Point3D> {
+    let n:i32 = (points.len() - 1)  as i32;
+    let m:i32 = (points[0].len() - 1) as i32;
+    let mut surface:Vec<Point3D> = vec_point3d::new();
+    while u <= 1.0 {
+        while v <= 1.0 {
+            surface.push(surface_point(n, p,&knots_u, m, q, &knots_v, &points, u, v));
+            v = v + 0.01;
+        }
+        u = u + 0.01;
+    }
+    return surface;
+}
+
+fn surface_point(n:i32, p:i32, knots_u:&Vec<f64>, m:i32, q:i32, knots_v:&Vec<f64>, points:&Vec<Vec<Point3D>>, u:f64, v:f64) -> Point3D {
+    let uspan = find_span(n, p, u, &knots_u);
+    let vspan = find_span(m, q, v, &knots_v);
+    let nu = basis_funs(uspan, u, p, &knots_u);
+    let nv = basis_funs(vspan, v, q, &knots_v);
+    let mut temp = vec![Point3D::new(0.0, 0.0, 0.0); q as usize];
+     for l in 0..q {
+        for k in 0..q {
+            temp[l as usize] = temp[l as usize] + points[(uspan - p + k) as usize][(vspan - q + l) as usize] * nu[k as usize]; 
+        }
+    }
+    let mut sum:Point3D = Point3D::new(0.0, 0.0, 0.0);
+    for l in 1..q {
+        sum = sum + temp[l as usize] * nv[l as usize];
+    }
+    print!("{} ", sum);
+    return sum;
 }
 
 fn find_span(n:i32, p:i32, u:f64, knots:&Vec<f64>) -> i32 {

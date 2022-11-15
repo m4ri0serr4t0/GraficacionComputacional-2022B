@@ -1,5 +1,3 @@
-pub mod curves;
+pub mod bspline;
 
 pub mod plotting;
-
-pub mod surfaces;

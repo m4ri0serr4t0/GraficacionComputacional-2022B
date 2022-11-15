@@ -1,5 +1,9 @@
 # B-Splines
 
+La implementación de B-Splines y los ejemplos estan basados en el libro de [The NURBS Book](https://books.google.com.mx/books/about/The_NURBS_Book.html?id=58KqCAAAQBAJ&redir_esc=y)
+
+## Curvas en 2D
+
 Basado en la siguiente formula:
 
 $$ C(u) = \sum_{i=0}^n N_{i,p}(u)P_i $$
