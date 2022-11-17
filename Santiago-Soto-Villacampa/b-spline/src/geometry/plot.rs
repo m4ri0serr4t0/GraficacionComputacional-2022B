@@ -7,7 +7,7 @@ use std::ops::Range;
 
 pub fn plot_graph(title:&str, fname:&str, dots:&Vec<Point>, graph:&Vec<Point>) {
 
-	let drawing_area = BitMapBackend::new(fname, (1200, 800)).into_drawing_area();
+	let drawing_area = BitMapBackend::new(fname, (800, 800)).into_drawing_area();
 	drawing_area.fill(&WHITE).unwrap();
 
 	let x_range = dots.x_range();

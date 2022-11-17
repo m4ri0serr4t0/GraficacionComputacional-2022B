@@ -32,8 +32,10 @@
 
 
     p = grado                           ┐
-    (n + 1) = no. puntos de control     ├──  m = n + p + 1  ---> segmentos = no.ptos control + grado
-    (m + 1) = no. nodos                 ┘
+    (n + 1) = no. puntos de control     ├──  m = n + 1 + p  ---> segmentos = no.ptos control + grado
+    (m + 1) = no. nodos                 ┘    
+                                             m + 1 = (n + 1) + p + 1
+                                             no.nodos = no. ptos de control + grado + 1
 
 
         Ejemplo: pag. 81
@@ -43,6 +45,7 @@
         Ejemplo: pag. 88
     U = {0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1}
     let knot_vec:Vec<f64> = Vec::from([0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0]);
+    let knot_vec:Vec<f64> = Vec::from([0.0,0.0,0.0,0.125,0.25,0.375,0.5,0.625,0.75,0.875,1.0,1.0,1.0]);
 
     ctrl_points.push(Point::new(0.0, 5.0));
     ctrl_points.push(Point::new(1.0, 7.0));

@@ -3,17 +3,21 @@ use b_spline::utils::stdiox as io;
 use b_spline::geometry::points::Point;
 use b_spline::geometry::vec_points::{self, Transform, new};
 use b_spline::geometry::plot;
+use b_spline::utils::math::{self, Float};
 
 fn main() {//                                                 u=2.5
     
-    //let knot_vec:Vec<f64> = Vec::from([0.0,0.0,0.0,0.125,0.25,0.375,0.5,0.625,0.75,0.875,1.0,1.0,1.0]);
+    
     let mut knot_vec:Vec<f64> = Vec::new();
 
     let mut ctrl_points = vec_points::new();
 
     // input del usuario
-    let n = io::read_i32("Digite el número de nodos: ");
-    let p = io::read_i32("Digite el grado: "); // menor o igual a m/2
+    print!("###########################\n\n\tB-SPLINE\n\n###########################\n\n");
+    /* 
+    let n = io::read_i32("Digite el número de nodos (m + 1): ");
+    let p = io::read_i32("Digite el grado (<= m/2): "); // menor o igual a m/2
+
     
     for k in 0..=p {
         println!("u[{}] = 0.0",k);
@@ -37,29 +41,60 @@ fn main() {//                                                 u=2.5
         ctrl_points.push(point);
     }
 
-    //let p = (ctrl_points.len() - 1) as i32; 
-    //let p = 2;
+    */
+
+    let no_pts = io::read_i32("Digite el número de puntos de control: ");
+    let p = io::read_i32("Digite el grado: ");
+    let n = no_pts + p + 1;
+
+    for k in 0..=p {
+        println!("u[{}] = 0.0",k);
+        knot_vec.push(0.0);
+    }
+
+    let denom:f64 = (no_pts - p).into();
+    for k in p + 1..n - p - 1 {
+        //knot_vec.push(io::read_f64(format!("u[{}] = ",k).as_str()));
+        let num:f64 = (k - p) as f64 / denom;
+        println!("u[{}] = {}", k, num);
+        knot_vec.push(num);
+    }
+
+    for k in n - p - 1..n {
+        println!("u[{}] = {}",k, 1.0.precision(2));
+        knot_vec.push(1.0);
+    }
+
+    for k in 0..no_pts {
+        println!("\nP({})", k);
+        let point:Point = Point { x: io::read_f64("\tx = "), y: io::read_f64("\ty = ") };
+
+        ctrl_points.push(point);
+    }
 
     let mut curve: Vec<Point> = vec_points::new();
 
     let mut u:f64 = 0.0;
     while u <= knot_vec[knot_vec.len() - 1] {
+        //print!("u = {}\n", u);
         curve.push(curve_point(p, u, &knot_vec, &ctrl_points));
-        u = u + 0.01;
+        u = (u + 0.01).precision(2);
     }
 
-    println!("Curva : {}", curve.to_string());
+    println!("\nCURVA :\n {}\n", curve.to_string());
+    let fname = io::read_string("Escriba el nombre del archivo: ");
 
-    plot::plot_graph("Curva B-Spline", "B_Spline.png", &ctrl_points, &curve);
+    plot::plot_graph("Curva B-Spline", &fname, &ctrl_points, &curve);
 
+    print!("\tListo!!\n\n###############################################\n\n");
     
 }
 
 fn find_span(p:i32, u:f64, knot_vec:&Vec<f64>) -> i32 {
     let m:i32 = (knot_vec.len() - 1) as i32;
     
-    if u == knot_vec[(m - p + 1) as usize] {
-        return m - p + 1;
+    if u.precision(2) == knot_vec[(m - p + 1) as usize].precision(2) {
+        return m - p - 1;
     }
 
     let mut low = p;        
@@ -94,6 +129,7 @@ fn basis_funs(i:i32, u:f64, p:i32, knot_vec:&Vec<f64>) -> Vec<f64>{
         
         let mut saved = 0.0;
         for r in 0..j {
+            print!("r + 1 = {}\n", r + 1);
             let temp = n[r as usize] / (right(r + 1) + left(j - r));
 
             n[r as usize] = saved + right(r + 1) * temp;
@@ -108,6 +144,8 @@ fn basis_funs(i:i32, u:f64, p:i32, knot_vec:&Vec<f64>) -> Vec<f64>{
 
 fn curve_point(p:i32, u:f64, knot_vec:&Vec<f64>, ctrl_points:&Vec<Point>) -> Point {
     let i = find_span(p, u, &knot_vec);
+    print!("i = {}\n", i);
+
     let n = basis_funs(i, u, p, &knot_vec);
 
     let mut curve_point:Point = Point::new(0.0, 0.0);
