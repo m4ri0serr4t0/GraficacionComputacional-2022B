@@ -84,7 +84,8 @@ fn main() {//                                                 u=2.5
     println!("\nCURVA :\n {}\n", curve.to_string());
     let fname = io::read_string("Escriba el nombre del archivo: ");
 
-    plot::plot_graph("Curva B-Spline", &fname, &ctrl_points, &curve);
+    //plot::plot_graph("Curva B-Spline", &fname, &ctrl_points, &curve);
+    plot::plot_pollygon(&fname, &ctrl_points, &curve);
 
     print!("\tListo!!\n\n###############################################\n\n");
     
