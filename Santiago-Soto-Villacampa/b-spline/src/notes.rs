@@ -57,4 +57,18 @@
     ctrl_points.push(Point::new(15.0, 3.0));
     ctrl_points.push(Point::new(19.0, 8.0));
     ctrl_points.push(Point::new(20.0, 7.0));
+
+    // ----------------------------------------------------------
+
+    ANGULO
+
+    A ---.._      B,D      __...--- E
+             \           /
+               \       /
+                |     |
+                 \   /
+                  | |
+                   |
+                   .
+                   C
 */

@@ -43,16 +43,38 @@ fn main() {//                                                 u=2.5
 
     */
 
-    let no_pts = io::read_i32("Digite el número de puntos de control: ");
-    let p = io::read_i32("Digite el grado: ");
-    let n = no_pts + p + 1;
+    //let no_pts = io::read_i32("Digite el número de puntos de control: ");
+    //let p = io::read_i32("Digite el grado: ");
+
+    ctrl_points.push(Point::new(3.5,0.2));
+    ctrl_points.push(Point::new(1.5,1.0));
+    ctrl_points.push(Point::new(1.0,3.5));
+    ctrl_points.push(Point::new(1.5,5.5));
+    ctrl_points.push(Point::new(4.0,7.0));
+    ctrl_points.push(Point::new(6.5,5.5));
+    ctrl_points.push(Point::new(7.0,3.5));
+    ctrl_points.push(Point::new(6.5,1.0));
+    ctrl_points.push(Point::new(4.5,0.0));
+    ctrl_points.push(Point::new(3.5,0.5));
+    ctrl_points.push(Point::new(3.5,2.0));
+    ctrl_points.push(Point::new(5.5,3.5));
+    ctrl_points.push(Point::new(5.0,4.5));
+    ctrl_points.push(Point::new(4.0,5.0));
+    ctrl_points.push(Point::new(3.0,4.5));
+    ctrl_points.push(Point::new(2.0,3.5));
+    ctrl_points.push(Point::new(2.5,1.5));
+    ctrl_points.push(Point::new(3.5,0.2));
+
+    let no_pts:i32 = ctrl_points.len() as i32;
+    let p:i32 = 2;
+    let n:i32 = no_pts + p + 1;
 
     for k in 0..=p {
         println!("u[{}] = 0.0",k);
         knot_vec.push(0.0);
     }
 
-    let denom:f64 = (no_pts - p).into();
+    let denom:f64 = (no_pts - p) as f64;
     for k in p + 1..n - p - 1 {
         //knot_vec.push(io::read_f64(format!("u[{}] = ",k).as_str()));
         let num:f64 = (k - p) as f64 / denom;
@@ -65,12 +87,14 @@ fn main() {//                                                 u=2.5
         knot_vec.push(1.0);
     }
 
+    /*
     for k in 0..no_pts {
         println!("\nP({})", k);
         let point:Point = Point { x: io::read_f64("\tx = "), y: io::read_f64("\ty = ") };
 
         ctrl_points.push(point);
     }
+    */
 
     let mut curve: Vec<Point> = vec_points::new();
 
@@ -84,8 +108,9 @@ fn main() {//                                                 u=2.5
     println!("\nCURVA :\n {}\n", curve.to_string());
     let fname = io::read_string("Escriba el nombre del archivo: ");
 
-    //plot::plot_graph("Curva B-Spline", &fname, &ctrl_points, &curve);
-    plot::plot_pollygon(&fname, &ctrl_points, &curve);
+    //-------------------------------
+    plot::plot_graph("Curva B-Spline", &fname, &ctrl_points, &curve);
+    //plot::plot_pollygon(&fname, &ctrl_points, &curve);
 
     print!("\tListo!!\n\n###############################################\n\n");
     
@@ -130,7 +155,6 @@ fn basis_funs(i:i32, u:f64, p:i32, knot_vec:&Vec<f64>) -> Vec<f64>{
         
         let mut saved = 0.0;
         for r in 0..j {
-            print!("r + 1 = {}\n", r + 1);
             let temp = n[r as usize] / (right(r + 1) + left(j - r));
 
             n[r as usize] = saved + right(r + 1) * temp;
@@ -145,7 +169,6 @@ fn basis_funs(i:i32, u:f64, p:i32, knot_vec:&Vec<f64>) -> Vec<f64>{
 
 fn curve_point(p:i32, u:f64, knot_vec:&Vec<f64>, ctrl_points:&Vec<Point>) -> Point {
     let i = find_span(p, u, &knot_vec);
-    print!("i = {}\n", i);
 
     let n = basis_funs(i, u, p, &knot_vec);
 
