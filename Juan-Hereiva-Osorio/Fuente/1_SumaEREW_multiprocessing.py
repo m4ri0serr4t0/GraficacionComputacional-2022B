@@ -7,7 +7,6 @@ def SumaEREW(i,j,A):
         A[2*j] = A[2*j] + A[((2*j) -((int)(math.pow(2,i-1))))]
         return
     time.sleep(0.5)
-
 if __name__ == '__main__':
     print('''
      SUMA EREW Multiprocessing
