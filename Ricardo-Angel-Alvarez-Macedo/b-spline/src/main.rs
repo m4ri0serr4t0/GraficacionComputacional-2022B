@@ -23,8 +23,10 @@ fn run(ctrl_points: &mut Vec<Point>,file_path:&str) -> Result<(), Box<dyn Error>
 }
 
 fn main() {//                                                 u=2.5
+    //leer todos los archivos en el directorio y regresa un vector de paths
     let paths = fs::read_dir("in/").unwrap();
 
+    //recorre cada path
     for path in paths {
         let path_name=path.as_ref().unwrap().file_name();
         let mut path_name_re=path_name.to_str().unwrap().to_string();
@@ -36,6 +38,7 @@ fn main() {//                                                 u=2.5
 
         let mut ctrl_points = new();
 
+        //aqui va a leer el archivo csv y lo guardara en un vector de tuplas
         println!("Name_Remp: {:?}",&*path.as_ref().unwrap().path().to_str().unwrap().to_string());
         if let Err(err) = run(&mut ctrl_points, &*path.unwrap().path().to_str().unwrap().to_string()) {
             println!("{}", err);
@@ -62,7 +65,6 @@ fn main() {//                                                 u=2.5
             println!("u[{}] = {}", k, 1.0.precision(2));
             knot_vec.push(1.0);
         }
-
 
         let mut curve: Vec<Point> = new();
 
