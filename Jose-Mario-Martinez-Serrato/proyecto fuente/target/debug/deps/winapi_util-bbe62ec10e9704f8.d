@@ -1,0 +1,10 @@
+D:\Mario\Documents\Ingeniería en Computación\Septimo Semestre\Graficacion Computacional\GraficacionComputacional-2022B\Jose-Mario-Martinez-Serrato\proyecto fuente\target\debug\deps\winapi_util-bbe62ec10e9704f8.rmeta: C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\lib.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\console.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\file.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\win.rs
+
+D:\Mario\Documents\Ingeniería en Computación\Septimo Semestre\Graficacion Computacional\GraficacionComputacional-2022B\Jose-Mario-Martinez-Serrato\proyecto fuente\target\debug\deps\libwinapi_util-bbe62ec10e9704f8.rlib: C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\lib.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\console.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\file.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\win.rs
+
+D:\Mario\Documents\Ingeniería en Computación\Septimo Semestre\Graficacion Computacional\GraficacionComputacional-2022B\Jose-Mario-Martinez-Serrato\proyecto fuente\target\debug\deps\winapi_util-bbe62ec10e9704f8.d: C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\lib.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\console.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\file.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\win.rs
+
+C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\lib.rs:
+C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\console.rs:
+C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\file.rs:
+C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\winapi-util-0.1.5\src\win.rs:

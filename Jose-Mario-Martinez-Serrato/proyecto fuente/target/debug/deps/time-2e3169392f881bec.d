@@ -1,0 +1,11 @@
+/mnt/d/Mario/Documents/Ingeniería en Computación/Septimo Semestre/Graficacion Computacional/GraficacionComputacional-2022B/Santiago-Soto-Villacampa/b-spline/target/debug/deps/time-2e3169392f881bec.rmeta: /home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/lib.rs /home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/display.rs /home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/duration.rs /home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/parse.rs /home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/sys.rs
+
+/mnt/d/Mario/Documents/Ingeniería en Computación/Septimo Semestre/Graficacion Computacional/GraficacionComputacional-2022B/Santiago-Soto-Villacampa/b-spline/target/debug/deps/libtime-2e3169392f881bec.rlib: /home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/lib.rs /home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/display.rs /home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/duration.rs /home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/parse.rs /home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/sys.rs
+
+/mnt/d/Mario/Documents/Ingeniería en Computación/Septimo Semestre/Graficacion Computacional/GraficacionComputacional-2022B/Santiago-Soto-Villacampa/b-spline/target/debug/deps/time-2e3169392f881bec.d: /home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/lib.rs /home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/display.rs /home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/duration.rs /home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/parse.rs /home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/sys.rs
+
+/home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/lib.rs:
+/home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/display.rs:
+/home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/duration.rs:
+/home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/parse.rs:
+/home/jmms/.cargo/registry/src/github.com-1ecc6299db9ec823/time-0.1.44/src/sys.rs:

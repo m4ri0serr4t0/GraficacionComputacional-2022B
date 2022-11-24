@@ -1,0 +1,10 @@
+D:\Mario\Documents\Ingeniería en Computación\Septimo Semestre\Graficacion Computacional\GraficacionComputacional-2022B\Jose-Mario-Martinez-Serrato\proyecto fuente\target\debug\deps\walkdir-41598eed7bccb485.rmeta: C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\lib.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\dent.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\error.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\util.rs
+
+D:\Mario\Documents\Ingeniería en Computación\Septimo Semestre\Graficacion Computacional\GraficacionComputacional-2022B\Jose-Mario-Martinez-Serrato\proyecto fuente\target\debug\deps\libwalkdir-41598eed7bccb485.rlib: C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\lib.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\dent.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\error.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\util.rs
+
+D:\Mario\Documents\Ingeniería en Computación\Septimo Semestre\Graficacion Computacional\GraficacionComputacional-2022B\Jose-Mario-Martinez-Serrato\proyecto fuente\target\debug\deps\walkdir-41598eed7bccb485.d: C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\lib.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\dent.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\error.rs C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\util.rs
+
+C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\lib.rs:
+C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\dent.rs:
+C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\error.rs:
+C:\Users\USER\.cargo\registry\src\github.com-1ecc6299db9ec823\walkdir-2.3.2\src\util.rs:
