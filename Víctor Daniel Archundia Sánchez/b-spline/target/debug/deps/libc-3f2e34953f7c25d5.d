@@ -1,0 +1,11 @@
+C:\Users\danie\Downloads\GraficacionComputacional-2022B-main\Santiago-Soto-Villacampa\b-spline\target\debug\deps\libc-3f2e34953f7c25d5.rmeta: C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\lib.rs C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\macros.rs C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\fixed_width_ints.rs C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\windows\mod.rs C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\windows\msvc\mod.rs
+
+C:\Users\danie\Downloads\GraficacionComputacional-2022B-main\Santiago-Soto-Villacampa\b-spline\target\debug\deps\liblibc-3f2e34953f7c25d5.rlib: C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\lib.rs C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\macros.rs C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\fixed_width_ints.rs C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\windows\mod.rs C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\windows\msvc\mod.rs
+
+C:\Users\danie\Downloads\GraficacionComputacional-2022B-main\Santiago-Soto-Villacampa\b-spline\target\debug\deps\libc-3f2e34953f7c25d5.d: C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\lib.rs C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\macros.rs C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\fixed_width_ints.rs C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\windows\mod.rs C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\windows\msvc\mod.rs
+
+C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\lib.rs:
+C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\macros.rs:
+C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\fixed_width_ints.rs:
+C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\windows\mod.rs:
+C:\Users\danie\.cargo\registry\src\github.com-1ecc6299db9ec823\libc-0.2.132\src\windows\msvc\mod.rs:
