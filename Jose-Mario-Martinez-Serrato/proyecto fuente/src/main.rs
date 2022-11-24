@@ -1,9 +1,17 @@
 use std::vec::Vec;
+<<<<<<<< HEAD:Jose-Mario-Martinez-Serrato/proyecto fuente/src/main.rs
 use b_spline::utils::stdiox as io;
 use b_spline::geometry::points::Point;
 use b_spline::geometry::vec_points::{self, Transform, new};
 use b_spline::geometry::plot;
 use b_spline::utils::math::{self, Float};
+========
+use b_spline::Librerias::stdiox as io;
+use b_spline::Graficar::points::Point;
+use b_spline::Graficar::vec_points::{self, Transform, new};
+use b_spline::Graficar::plot;
+use b_spline::Librerias::math::{self, Float};
+>>>>>>>> b03cc460668f4972db2bdc7d56f604202f9a618d:Víctor Daniel Archundia Sánchez/b-spline/src/main.rs
 
 fn main() {//                                                 u=2.5
     
@@ -12,6 +20,7 @@ fn main() {//                                                 u=2.5
 
     let mut ctrl_points = vec_points::new();
 
+<<<<<<<< HEAD:Jose-Mario-Martinez-Serrato/proyecto fuente/src/main.rs
    
     print!("###########################\n\n\tB-SPLINE\n\n###########################\n\n");
    
@@ -34,6 +43,33 @@ fn main() {//                                                 u=2.5
     
 
     
+========
+    print!("\n\n\tB-SPLINE\n\n\n\n");
+
+    ctrl_points.push(Point::new(1.3,6.7));
+    ctrl_points.push(Point::new(0.7,6.2));
+    ctrl_points.push(Point::new(1.2,5.5));
+    ctrl_points.push(Point::new(4.1,5.5));
+    ctrl_points.push(Point::new(4.4,5.1));
+    ctrl_points.push(Point::new(2.0,4.0));
+    ctrl_points.push(Point::new(1.2,3.5));
+    ctrl_points.push(Point::new(2.0,3.0));
+    ctrl_points.push(Point::new(3.6,2.8));
+    ctrl_points.push(Point::new(4.2,2.3));
+    ctrl_points.push(Point::new(3.6,1.7));
+    ctrl_points.push(Point::new(1.3,1.5));
+    ctrl_points.push(Point::new(0.6,1.04));
+    ctrl_points.push(Point::new(1.2,0.5));
+    ctrl_points.push(Point::new(4.0,0.5));
+    ctrl_points.push(Point::new(5.6,1.6));
+    ctrl_points.push(Point::new(5.8,3.2));
+    ctrl_points.push(Point::new(3.5,3.9));
+    ctrl_points.push(Point::new(5.9,4.8));
+    ctrl_points.push(Point::new(6.1,6.5));
+    ctrl_points.push(Point::new(3.5,7.0));
+    ctrl_points.push(Point::new(1.3,6.7));
+  
+>>>>>>>> b03cc460668f4972db2bdc7d56f604202f9a618d:Víctor Daniel Archundia Sánchez/b-spline/src/main.rs
     let no_pts:i32 = ctrl_points.len() as i32;
     let p:i32 = 2;
     let n:i32 = no_pts + p + 1;
@@ -45,7 +81,10 @@ fn main() {//                                                 u=2.5
 
     let denom:f64 = (no_pts - p) as f64;
     for k in p + 1..n - p - 1 {
+<<<<<<<< HEAD:Jose-Mario-Martinez-Serrato/proyecto fuente/src/main.rs
         //knot_vec.push(io::read_f64(format!("u[{}] = ",k).as_str()));
+========
+>>>>>>>> b03cc460668f4972db2bdc7d56f604202f9a618d:Víctor Daniel Archundia Sánchez/b-spline/src/main.rs
         let num:f64 = (k - p) as f64 / denom;
         println!("u[{}] = {}", k, num);
         knot_vec.push(num);
