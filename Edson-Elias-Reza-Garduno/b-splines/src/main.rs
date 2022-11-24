@@ -1,7 +1,6 @@
 use b_splines::common::point::Point;
 use b_splines::common::read;
 use b_splines::common::read::read_vector;
-use b_splines::common::vec_point3d::Point3D;
 use b_splines::common::verification;
 use b_splines::graphic::bspline;
 use b_splines::graphic::plotting as plot;
@@ -14,14 +13,14 @@ fn main() {
     println!("Bienvenido al programa de generación de B-Splines");
     println!("Seleccione la opción que desea realizar");
     println!("1. Generar una curva");
-    println!("2. Generar una superficie");
+    println!("2. Generar el abecedario");
     println!("Otro. Salir");
     print!("Opción: ");
     let opcion: i8 = read::read();
 
     match opcion {
         1 => curve(),
-        2 => surface_example(),
+        2 => generar_abc(),
         _ => println!("Hasta luego"),
     }
 }
@@ -57,134 +56,387 @@ fn curve() {
     plot::plot_curve(&name, &points, &bspline);
 }
 
-fn surface() {
-    // Lectura de nudos en U
-    print!("Ingrese el numero de nudos en u: ");
-    let n: i32 = read::read();
-    let knots_u: Vec<f64> = read_vector(n);
+fn generar_abc() {
+    let p:i32 = 2;
+    //* Letra A
+    // let a:Vec<Point> = vec![
+    //     Point::new(6.0,4.0),
+    //     Point::new(1.0, 1.0),
+    //     Point::new(4.0, 12.0),
+    //     Point::new(7.0, 1.0),
+    //     Point::new(6.0, 1.0),
+    //     Point::new(4.0, 10.0),
+    //     Point::new(2.0, 1.0),
+    //     Point::new(1.0, 1.0),
+    //     Point::new(6.0,4.0),
+    // ];
 
-    // Lectura de nudos en V
-    print!("Ingrese el numero de nudos en v: ");
-    let n: i32 = read::read();
-    let knots_v: Vec<f64> = read_vector(n);
+    // * Letra B :(
 
-    // Lectura de puntos de control
-    println!("Considere que los puntos de control se colocan en una matriz de n x m");
-    print!("Ingrese el numero de columnas: ");
-    let n: i32 = read::read();
-    print!("Ingrese el numero de filas: ");
-    let m: i32 = read::read();
-    let points: Vec<Vec<Point3D>> = read::read_matrix(n, m);
+    // * Letra C
+    // let letter: Vec<Point> = vec![
+    //     Point::new(7.0, 7.0),
+    //     Point::new(3.0, 7.0),
+    //     Point::new(1.0, 4.0),
+    //     Point::new(3.0, 1.0),
+    //     Point::new(7.0, 1.0),
+    //     Point::new(7.0, 2.0),
+    //     Point::new(3.0, 4.0),
+    //     Point::new(4.0, 7.0),
+    //     Point::new(7.0, 6.0),
+    //     Point::new(7.0, 7.0),
+    // ];
 
-    // Lectura del grado en U
-    print!("Ingrese el grado en u: ");
-    let p: i32 = read::read();
+    // * Letra D
+    // let letter:Vec<Point> = vec![
+    //     Point::new(1.0, 1.0),
+    //     Point::new(1.0, 7.0),
+    //     Point::new(7.0, 6.0),
+    //     Point::new(10.0, 4.0),
+    //     Point::new(7.0, 2.0),
+    //     Point::new(1.0, 1.5),
+    //     Point::new(6.5, 3.0),
+    //     Point::new(8.0, 4.0),
+    //     Point::new(6.0, 5.5),
+    //     Point::new(2.0, 6.0),
+    //     Point::new(1.0, 1.0)
+    // ];
 
-    // Lectura del grado en V
-    print!("Ingrese el grado en v: ");
-    let q: i32 = read::read();
+    // * Letra E
+    // let letter:Vec<Point> = vec![
+    //     Point::new(1.0, 1.0),
+    //     Point::new(1.0, 8.0),
+    //     Point::new(5.0, 8.0),
+    //     Point::new(5.0, 7.0),
+    //     Point::new(1.5, 7.0),
+    //     Point::new(1.5, 5.0),
+    //     Point::new(4.0, 5.0),
+    //     Point::new(4.0, 4.0),
+    //     Point::new(1.5, 4.0),
+    //     Point::new(1.5, 2.0),
+    //     Point::new(5.0, 2.0),
+    //     Point::new(5.0, 1.0),
+    //     Point::new(1.0, 1.0),
+    // ];
 
-    // Lectura de saltos en la superficie, define la resolucion de la superficie
-    let u: f64 = 0.01;
-    let v: f64 = 0.01;
+    // * Letra F
+    // let letter:Vec<Point> = vec![
+    //     Point::new(1.0, 1.0),
+    //     Point::new(1.0, 8.0),
+    //     Point::new(5.0, 8.0),
+    //     Point::new(5.0, 7.0),
+    //     Point::new(1.5, 7.0),
+    //     Point::new(1.5, 5.0),
+    //     Point::new(4.0, 5.0),
+    //     Point::new(4.0, 4.0),
+    //     Point::new(1.5, 4.0),
+    //     Point::new(1.5, 1.0),
+    //     Point::new(1.0, 1.0),
+    // ];
 
-    // Generacion de la superficie
-    let bspline: Vec<Point3D> = bspline::bspline_surface(&knots_u, &knots_v, &points, u, v, p, q);
+    // * Letra G
+    // let letter:Vec<Point> = vec![
+    //     Point::new(7.0, 7.0),
+    //     Point::new(2.0, 7.0),
+    //     Point::new(1.0, 4.0),
+    //     Point::new(2.0, 2.0),
+    //     Point::new(5.0, 1.0),
+    //     Point::new(7.0, 2.0),
+    //     Point::new(7.0, 4.0),
+    //     Point::new(5.0, 4.0),
+    //     Point::new(6.0, 3.0),
+    //     Point::new(7.0, 3.0),
+    //     Point::new(1.0, 4.0),
+    //     Point::new(7.0, 7.0),
+    // ];
 
-    print!("Ingrese el nombre del archivo para guardar el resultado (.png): ");
-    let mut name: String = read::read();
-    name = verification::nombre_con_extension(&name, ".png");
+    // * Letra H
+    // let letter:Vec<Point> = vec![
+    //     Point::new(1.0, 7.0),
+    //     Point::new(1.0, 1.0),
+    //     Point::new(2.0, 1.0),
+    //     Point::new(2.0, 3.0),
+    //     Point::new(5.0, 3.0),
+    //     Point::new(5.0, 1.0),
+    //     Point::new(6.0, 1.0),
+    //     Point::new(6.0, 7.0),
+    //     Point::new(5.0, 7.0),
+    //     Point::new(5.0, 4.0),
+    //     Point::new(2.0, 4.0),
+    //     Point::new(2.0, 7.0),
+    //     Point::new(1.0, 7.0),
+    // ];
 
-    plot::plot_surface(&name, &points, &bspline);
-}
+    // * Letra I
+    // let letter:Vec<Point> = vec![
+    //     Point::new(1.0, 7.0),
+    //     Point::new(1.0, 1.0),
+    //     Point::new(2.0, 1.0),
+    //     Point::new(2.0, 7.0),
+    //     Point::new(1.0, 7.0),
+    // ];
 
-fn surface_example() {
-    // * This is an example of the book "The NURBS Book" by Piegl and Tiller.
+    // * Letra J
+    // let letter:Vec<Point> = vec![
+    //     Point::new(1.0, 1.0),
+    //     Point::new(4.0, 1.0),
+    //     Point::new(4.0, 7.0),
+    //     Point::new(3.0, 7.0),
+    //     Point::new(3.0, 2.0),
+    //     Point::new(1.0, 1.0),
+    // ];
 
-    // * Knots in U
-    let knots_u: Vec<f64> = vec![0.0, 0.0, 0.0, 0.25, 0.5, 0.75, 1.0, 1.0, 1.0];
+    // * Letra K
 
-    // * Knots in V
-    let knots_v: Vec<f64> = vec![0.0, 0.0, 0.0, 0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.0, 1.0, 1.0];
+    // * Letra L
+    // let letter:Vec<Point> = vec![
+    //     Point::new(1.0, 7.0),
+    //     Point::new(1.0, 1.0),
+    //     Point::new(4.0, 1.0),
+    //     Point::new(4.0, 2.0),
+    //     Point::new(2.0, 2.0),
+    //     Point::new(2.0, 7.0),
+    //     Point::new(1.0, 7.0),
+    // ];
 
-    // * Control points
-    let points: Vec<Vec<Point3D>> = vec![
-        vec![
-            Point3D::new(0.0, 0.0, 0.0),
-            Point3D::new(0.0, 1.0, 0.0),
-            Point3D::new(0.0, 2.0, 0.0),
-            Point3D::new(0.0, 3.0, 0.0),
-            Point3D::new(0.0, 4.0, 0.0),
-            Point3D::new(0.0, 5.0, 0.0),
-            Point3D::new(0.0, 6.0, 0.0),
-            Point3D::new(0.0, 7.0, 0.0),
+    // * Letra M
+    // let letter:Vec<Point> = vec![
+    //     Point::new(1.0, 6.0),
+    //     Point::new(3.0, 6.5),
+    //     Point::new(4.0, 5.0),
+    //     Point::new(7.0, 7.0),
+    //     Point::new(7.0, 1.0),
+    //     Point::new(6.0, 1.0),
+    //     Point::new(6.0, 6.0),
+    //     Point::new(4.0, 4.0),
+    //     Point::new(2.0, 6.0),
+    //     Point::new(2.0, 1.0),
+    //     Point::new(1.0, 1.0),
+    //     Point::new(1.0, 6.0),
+    // ];
 
-        ],
-        vec![
-            Point3D::new(1.0, 0.0, 0.0),
-            Point3D::new(1.0, 1.0, 0.0),
-            Point3D::new(1.0, 2.0, 0.0),
-            Point3D::new(1.0, 3.0, 0.0),
-            Point3D::new(1.0, 4.0, 0.0),
-            Point3D::new(1.0, 5.0, 0.0),
-            Point3D::new(1.0, 6.0, 0.0),
-            Point3D::new(1.0, 7.0, 0.0),
-        ],
-        vec![
-            Point3D::new(2.0, 0.0, 0.0),
-            Point3D::new(2.0, 1.0, 0.0),
-            Point3D::new(2.0, 2.0, 0.0),
-            Point3D::new(2.0, 3.0, 0.0),
-            Point3D::new(2.0, 4.0, 0.0),
-            Point3D::new(2.0, 5.0, 0.0),
-            Point3D::new(2.0, 6.0, 0.0),
-            Point3D::new(2.0, 7.0, 0.0),
-        ],
-        vec![
-            Point3D::new(3.0, 0.0, 0.0),
-            Point3D::new(3.0, 1.0, 0.0),
-            Point3D::new(3.0, 2.0, 0.0),
-            Point3D::new(3.0, 3.0, 0.0),
-            Point3D::new(3.0, 4.0, 0.0),
-            Point3D::new(3.0, 5.0, 0.0),
-            Point3D::new(3.0, 6.0, 0.0),
-            Point3D::new(3.0, 7.0, 0.0),
-        ],
-        vec![
-            Point3D::new(4.0, 0.0, 0.0),
-            Point3D::new(4.0, 1.0, 0.0),
-            Point3D::new(4.0, 2.0, 0.0),
-            Point3D::new(4.0, 3.0, 0.0),
-            Point3D::new(4.0, 4.0, 0.0),
-            Point3D::new(4.0, 5.0, 0.0),
-            Point3D::new(4.0, 6.0, 0.0),
-            Point3D::new(4.0, 7.0, 0.0),
-        ],
-        vec![
-            Point3D::new(5.0, 0.0, 0.0),
-            Point3D::new(5.0, 1.0, 0.0),
-            Point3D::new(5.0, 2.0, 0.0),
-            Point3D::new(5.0, 3.0, 0.0),
-            Point3D::new(5.0, 4.0, 0.0),
-            Point3D::new(5.0, 5.0, 0.0),
-            Point3D::new(5.0, 6.0, 0.0),
-            Point3D::new(5.0, 7.0, 0.0),
-        ],
+    // * Letra N
+    // let letter:Vec<Point> = vec![
+    //     Point::new(1.0, 1.0),
+    //     Point::new(1.0, 7.0),
+    //     Point::new(2.0, 7.0),
+    //     Point::new(5.0, 2.0),
+    //     Point::new(5.0, 7.0),
+    //     Point::new(6.0, 7.0),
+    //     Point::new(7.0, 1.0),
+    //     Point::new(6.0, 1.0),
+    //     Point::new(2.0, 6.0),
+    //     Point::new(2.0, 1.0),
+    //     Point::new(1.0, 1.0),
+    // ];
+
+    // * Letra O
+
+    // * Letra P
+    
+    // * Letra Q
+
+    // * Letra R
+
+    // * Letra S
+    // let letter:Vec<Point> = vec![
+    //     Point::new(6.0, 7.0),
+    //     Point::new(6.0, 6.0),
+    //     Point::new(2.0, 6.0),
+    //     Point::new(2.0, 4.0),
+    //     Point::new(6.0, 4.0),
+    //     Point::new(6.0, 1.0),
+    //     Point::new(1.0, 1.0),
+    //     Point::new(1.0, 2.0),
+    //     Point::new(5.0, 2.0),
+    //     Point::new(5.0, 3.0),
+    //     Point::new(1.0, 3.0),
+    //     Point::new(1.0, 7.0),
+    //     Point::new(6.0, 7.0),
+    // ];
+
+    // * Letra T
+    // let letter:Vec<Point> = vec![
+    //     Point::new(4.0, 7.0),
+    //     Point::new(7.0, 7.0),
+    //     Point::new(7.0, 6.0),
+    //     Point::new(4.5, 6.0),
+    //     Point::new(4.5, 1.0),
+    //     Point::new(3.5, 1.0),
+    //     Point::new(3.5, 6.0),
+    //     Point::new(1.0, 6.0),
+    //     Point::new(1.0, 7.0),
+    //     Point::new(4.0, 7.0),
+    // ];
+
+    // * Letra U
+    // let letter:Vec<Point> = vec![
+    //     Point::new(1.0, 7.0),
+    //     Point::new(1.0, 1.0),
+    //     Point::new(4.0, 1.0),
+    //     Point::new(7.0, 1.0),
+    //     Point::new(7.0, 7.0),
+    //     Point::new(6.0, 7.0),
+    //     Point::new(6.0, 2.0),
+    //     Point::new(2.0, 2.0),
+    //     Point::new(2.0, 7.0),
+    //     Point::new(1.0, 7.0),
+    // ];
+
+    // * Letra V
+    // let letter:Vec<Point> = vec![
+    //     Point::new(2.0, 7.0),
+    //     Point::new(4.0, 2.0),
+    //     Point::new(6.0, 7.0),
+    //     Point::new(7.0, 7.0),
+    //     Point::new(4.0, 0.0),
+    //     Point::new(1.0, 7.0),
+    //     Point::new(2.0, 7.0),
+    // ];
+
+    // * Letra W
+    // let letter:Vec<Point> = vec![
+    //     Point::new(1.0, 7.0),
+    //     Point::new(1.0, 1.0),
+    //     Point::new(4.0, 5.0),
+    //     Point::new(7.0, 1.0),
+    //     Point::new(7.0, 7.0),
+    //     Point::new(6.0, 7.0),
+    //     Point::new(6.0, 2.0),
+    //     Point::new(4.0, 6.0),
+    //     Point::new(2.0, 2.0),
+    //     Point::new(2.0, 7.0),
+    //     Point::new(1.0, 7.0),
+    // ];
+
+    // * Letra X 
+
+    // * Letra Y
+    // let letter:Vec<Point> = vec![
+    //     Point::new(2.0, 7.0),
+    //     Point::new(4.0, 5.0),
+    //     Point::new(6.0, 7.0),
+    //     Point::new(7.0, 7.0),
+    //     Point::new(4.5, 4.0),
+    //     Point::new(4.5, 1.0),
+    //     Point::new(3.5, 1.0),
+    //     Point::new(3.5, 4.0),
+    //     Point::new(1.0, 7.0),
+    //     Point::new(2.0, 7.0),
+    // ];
+
+    // * Letra Z
+    // let letter:Vec<Point> = vec![
+    //     Point::new(1.0, 7.0),
+    //     Point::new(7.0, 7.0),
+    //     Point::new(7.0, 6.0),
+    //     Point::new(2.0, 2.0),
+    //     Point::new(7.0, 2.0),
+    //     Point::new(7.0, 1.0),
+    //     Point::new(1.0, 1.0),
+    //     Point::new(1.0, 2.0),
+    //     Point::new(5.0, 6.0),
+    //     Point::new(1.0, 6.0),
+    //     Point::new(1.0, 7.0),        
+    // ];
+
+    // * Numero 0
+
+    // * Numero 1
+    // let letter:Vec<Point> = vec![
+    //     Point::new(1.0, 6.0),
+    //     Point::new(2.0, 7.0),
+    //     Point::new(4.0, 7.0),
+    //     Point::new(4.0, 1.0),
+    //     Point::new(2.0, 1.0),
+    //     Point::new(2.0, 6.0),
+    //     Point::new(1.0, 6.0),
+    // ];
+
+    // * Numero 2
+    // let letter:Vec<Point> = vec![
+    //     Point::new(1.0, 5.0),
+    //     Point::new(1.0, 7.0),
+    //     Point::new(5.0, 7.0),
+    //     Point::new(5.0, 6.0),
+    //     Point::new(2.0, 2.0),
+    //     Point::new(5.0, 2.0),
+    //     Point::new(5.0, 1.0),
+    //     Point::new(1.0, 1.0),
+    //     Point::new(1.0, 2.0),
+    //     Point::new(5.0, 6.0),
+    //     Point::new(1.0, 6.0),
+    //     Point::new(1.0, 5.0),        
+    // ];
+
+    // * Numero 3
+    // let letter:Vec<Point> = vec![
+    //     Point::new(1.0, 7.0),
+    //     Point::new(7.0, 7.0),
+    //     Point::new(7.0, 5.0),
+    //     Point::new(3.0, 4.0),
+    //     Point::new(7.0, 4.0),
+    //     Point::new(7.0, 2.0),
+    //     Point::new(1.0, 2.0),
+    //     Point::new(1.0, 4.0),
+    //     Point::new(5.0, 5.0),
+    //     Point::new(1.0, 6.0),
+    //     Point::new(1.0, 7.0),
+    // ];
+
+
+    // * Numero 4
+    // let letter:Vec<Point> = vec![
+    //     Point::new(7.0, 7.0),
+    //     Point::new(7.0, 1.0),
+    //     Point::new(6.0, 1.0),
+    //     Point::new(6.0, 4.0),
+    //     Point::new(1.0, 4.0),
+    //     Point::new(1.0, 7.0),
+    //     Point::new(2.0, 7.0),
+    //     Point::new(2.0, 5.0),
+    //     Point::new(6.0, 5.0),
+    //     Point::new(6.0, 7.0),
+    //     Point::new(7.0, 7.0),
+    // ];
+
+    // * Numero 5
+
+    // * Numero 6
+
+    // * Numero 7
+    let letter:Vec<Point> = vec![
+        Point::new(1.0, 7.0),
+        Point::new(7.0, 7.0),
+        Point::new(7.0, 6.0),
+        Point::new(2.0, 1.0),
+        Point::new(1.0, 1.0),
+        Point::new(1.0, 2.0),
+        Point::new(6.0, 6.0),
+        Point::new(1.0, 6.0),
+        Point::new(1.0, 7.0),
     ];
 
-    // * Degree in U
-    let p: i32 = 2;
+    // * Numero 8
 
-    // * Degree in V
-    let q: i32 = 3;
+    // * Numero 9
 
-    // * Steps in the surface, defines the resolution of the surface
-    let u: f64 = 0.01;
-    let v: f64 = 0.01;
+    let mut knots: Vec<f64> = vec![];
 
-    // * Generation of the surface
-    let bspline: Vec<Point3D> = bspline::bspline_surface(&knots_u, &knots_v, &points, u, v, p, q);
+    let size: i32 = ((p + 1 + letter.len() as i32) - (2 * (p + 1))) + 1;
 
-    // * Drawing of the surface
-    plot::plot_surface("surface.png", &points, &bspline);
+    for _ in 0..p + 1 {
+        knots.push(0.0);
+    }
+
+    for i in 1..size {
+        knots.push(i as f64 * (1.0 / size as f64))
+    }
+
+    for _ in 0..p + 1 {
+        knots.push(1.0);
+    }
+
+    let bspline = bspline::bspline(&knots, &letter, p, 0.001);
+    plot::plot_polygon("results/font/7.png", &letter, &bspline);
 }
