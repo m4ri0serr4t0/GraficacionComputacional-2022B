@@ -1,4 +1,3 @@
-use std::fmt;
 
 pub fn fac(n:i32) -> i32 {
 	if n <= 1 {
@@ -24,7 +23,6 @@ pub trait Float {
 impl Float for f64 {
 	fn precision(&self, digits:i32) -> f64 {
 		let str:String = format!("{0:.1$}", self, digits as usize);
-
 		return str.parse().expect("Argumento invalido");
 	}
 }

@@ -1,6 +1,4 @@
-use std::env;
 use std::error::Error;
-use std::ffi::OsString;
 use std::fs;
 use std::fs::File;
 use std::process;
@@ -8,8 +6,8 @@ use std::vec::Vec;
 
 use b_spline::geometry::plot;
 use b_spline::geometry::points::Point;
-use b_spline::geometry::vec_points::{self, new, Transform};
-use b_spline::utils::math::{self, Float};
+use b_spline::geometry::vec_points::{new};
+use b_spline::utils::math::{Float};
 
 fn run(ctrl_points: &mut Vec<Point>,file_path:&str) -> Result<(), Box<dyn Error>> {
     let file = File::open(file_path)?;
@@ -24,17 +22,8 @@ fn run(ctrl_points: &mut Vec<Point>,file_path:&str) -> Result<(), Box<dyn Error>
     Ok(())
 }
 
-/// Returns the first positional argument sent to this process. If there are no
-/// positional arguments, then this returns an error.
-fn get_first_arg() -> Result<OsString, Box<dyn Error>> {
-    match env::args_os().nth(1) {
-        None => Err(From::from("expected 1 argument, but got none")),
-        Some(file_path) => Ok(file_path),
-    }
-}
-
 fn main() {//                                                 u=2.5
-    let paths = fs::read_dir("points/").unwrap();
+    let paths = fs::read_dir("in/").unwrap();
 
     for path in paths {
         let path_name=path.as_ref().unwrap().file_name();
